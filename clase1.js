@@ -6,3 +6,4 @@ var letrasNombre = nombre.length
 var nombreCompleto = nombre + ' ' + apellido
 var interpolacionTexto = `${nombre} ${apellido}`
 var subCadena = nombre.substr(1,2)
+var ultimaLetra = nombre.charAt(nombre.length-1)
