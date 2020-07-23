@@ -12,14 +12,30 @@ var dario = {
 
 
 
-function imprimirNombre({
-    nombre
-}) {
+function imprimirNombre(persona) {
+    //var nombre = nombre.persona
+    var {
+        nombre
+    } = persona
     console.log(nombre.toUpperCase())
 }
 
-imprimirNombre(brandon)
-imprimirNombre(dario)
+function imprimirNombreEdad(persona) {
+    var {
+        nombre
+    } = persona
+    var {
+        edad
+    } = persona
+    console.log(`Hola, soy ${nombre} y tengo ${edad} años`)
+}
+
+imprimirNombreEdad(brandon)
+imprimirNombreEdad(dario)
 imprimirNombre({
     nombre: 'Vero'
 })
+
+function cumpleanos(persona) {
+    persona.edad += 1
+}
