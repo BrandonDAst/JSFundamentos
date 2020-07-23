@@ -40,7 +40,5 @@ function cumpleanos(persona) {
     return {
         ...persona,
         edad: persona.edad + 10
-
     }
-
 }
