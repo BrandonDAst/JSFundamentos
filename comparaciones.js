@@ -7,5 +7,10 @@ var uno = {
     nombre: 'Brandon'
 }
 var otro = {
+    ...uno,
     nombre: 'Brandon'
 }
+
+
+var d = uno == otro //False
+var t = uno === otro // False

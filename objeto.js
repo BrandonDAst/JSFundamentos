@@ -10,8 +10,6 @@ var dario = {
     edad: 27
 }
 
-
-
 function imprimirNombre(persona) {
     //var nombre = nombre.persona
     var {
