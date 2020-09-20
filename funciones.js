@@ -6,9 +6,21 @@ var brandon = {
 }
 
 //Funciones que retornan valores
-function esMayor(persona) {
+function esMayorFuncion(persona) {
     return persona.edad >= MAYORIA_EDAD
 }
+const esMayorAnon = function (persona) {
+    return persona.edad >= MAYORIA_EDAD
+}
+const esMayorAnonArrow = (persona) => {
+    persona.edad >= MAYORIA_EDAD
+}
+const esMayorAnonArrowSimple = (persona) => persona.edad >= MAYORIA_EDAD
+const esMayorAnonArrowSinParen = persona => persona.edad >= MAYORIA_EDAD
+const esMayorAnonArrowDestruct = ({
+    edad
+}) => edad >= MAYORIA_EDAD
+
 
 function imprimirEdad(n, e) {
     console.log(`${n} tiene ${e} anios`)
