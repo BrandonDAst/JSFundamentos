@@ -1,21 +1,23 @@
-var nombre = 'Brandon',
-    edad = 24
+const MAYORIA_EDAD = 18
 var brandon = {
     nombre: 'Brandon',
     apellido: 'Diaz',
     edad: 24
 }
 
+//Funciones que retornan valores
+function esMayor(persona) {
+    return persona.edad >= MAYORIA_EDAD
+}
+
 function imprimirEdad(n, e) {
     console.log(`${n} tiene ${e} anios`)
 }
-imprimirEdad(nombre, edad)
 
 function imprimirSiEsMayor(persona) {
-    if (persona.edad >= 18) { //Brandon es mayor
-        console.log(`${persona.nombre} es ayor de edad`)
+    if (esMayor(persona)) { //Brandon es mayor
+        console.log(`${persona.nombre} es mayor de edad`)
     } else { //Brandon es menor de edad
         console.log(`${persona.nombre} es menor de edad`)
     }
 }
-imprimirSiEsMayor(brandon)
