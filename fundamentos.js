@@ -42,11 +42,52 @@ var rebanadas = pizza / personas
 function ImprimirEdad(n, e) {
     console.log(`${n} tiene ${e} años`)
 }
-ImprimirEdad(nombre, edad)
+//ImprimirEdad(nombre, edad)
 
 // El alcance de las funciones. A que variables pueden acceder
-function ImprimirNombreMayus(n) {
-    n = n.toUpperCase()
-    console.log(n)
+function ImprimirNombreMayus(persona) {
+    var {
+        nombre
+    } = persona
+    //var nombre = persona.nombre
+    console.log(nombre.toUpperCase())
+
 }
-ImprimirNombreMayus(nombre)
+
+function ImprimirNombreMayusDestruct({
+    nombre
+}) {
+    console.log(nombre.toUpperCase())
+}
+//ImprimirNombreMayus(nombre)
+
+function ImprimirNombreEdad(persona) {
+    var {
+        nombre,
+        edad
+    } = persona
+    console.log(`Hola, me llamo ${nombre}, y tengo ${edad} años`)
+}
+
+//////////////////////////////////////////////////////////////////
+// OBJETOS
+//////////////////////////////////////////////////////////////////
+
+var brandon = {
+    nombre: 'Brandon',
+    apellido: 'Diaz',
+    edad: 24
+}
+var dario = {
+    nombre: 'Dario',
+    apellido: 'Susnisky',
+    edad: 29
+}
+
+ImprimirNombreMayus(brandon)
+ImprimirNombreMayusDestruct(dario)
+ImprimirNombreMayusDestruct({
+    nombre: 'Pepito'
+})
+
+ImprimirNombreEdad(brandon)
