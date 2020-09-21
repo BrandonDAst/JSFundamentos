@@ -2,6 +2,8 @@ console.log("Curso de Fundamentos. Hola Mundo.")
 //////////////////////////////////////////////////////////////////
 // VARIABLES
 //////////////////////////////////////////////////////////////////
+
+// Globales porque no estan dentro de un cuerpo {}
 var nombre = 'Brandon',
     apellido = 'Diaz',
     edad = 25,
@@ -31,3 +33,20 @@ var totalDosDecimalNoString = parseFloat(totalDosDecimal)
 var pizza = 8
 var personas = 2
 var rebanadas = pizza / personas
+
+//////////////////////////////////////////////////////////////////
+// FUNCIONES: Pedazos de codigo reutilizables
+//////////////////////////////////////////////////////////////////
+
+// Funcion tradicional
+function ImprimirEdad(n, e) {
+    console.log(`${n} tiene ${e} años`)
+}
+ImprimirEdad(nombre, edad)
+
+// El alcance de las funciones. A que variables pueden acceder
+function ImprimirNombreMayus(n) {
+    n = n.toUpperCase()
+    console.log(n)
+}
+ImprimirNombreMayus(nombre)
