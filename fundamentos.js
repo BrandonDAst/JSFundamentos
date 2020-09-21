@@ -197,7 +197,7 @@ var diferenciaPeso = 0.2
 const SubeDePeso = persona => persona.peso += diferenciaPeso
 const BajaDePeso = persona => persona.peso -= diferenciaPeso
 
-console.log(`Al inicio del año Brandon pesaba ${brandon.peso} KG.`)
+//console.log(`Al inicio del año Brandon pesaba ${brandon.peso} KG.`)
 
 for (var i = 1; i <= 365; i++) {
     var rnd = Math.random()
@@ -206,4 +206,55 @@ for (var i = 1; i <= 365; i++) {
     else if (rnd < 0.50) BajaDePeso(brandon)
 }
 
-console.log(`Al final del año Brandon pesa ${brandon.peso.toFixed(1)} KG.`)
+//console.log(`Al final del año Brandon pesa ${brandon.peso.toFixed(1)} KG.`)
+
+//////////////////////////////////////////////////////////////////
+// ESTRUCTURAS DE CONTROL WHILE
+//////////////////////////////////////////////////////////////////
+const comeMucho = () => Math.random() < 0.3
+const comePoco = () => Math.random() < 0.4
+const pesoMeta = brandon.peso - 3
+var dias = 0
+
+while (brandon.peso > pesoMeta) {
+    //debugger
+    if (comeMucho()) {
+        SubeDePeso(brandon)
+    }
+    if (comePoco()) {
+        BajaDePeso(brandon)
+    }
+    dias += 1
+}
+
+//console.log(`Pasaron ${dias}`)
+
+//////////////////////////////////////////////////////////////////
+// ESTRUCTURAS DE CONTROL DO-WHILE
+//////////////////////////////////////////////////////////////////
+var contador = 0
+const llueve = () => Math.random() < 0.25
+var veces = 'veces'
+do {
+    contador++
+
+} while (!llueve())
+if (contador === 1) veces = 'vez'
+
+//console.log('Fui a ver si llovia ' + contador + ` ${veces}`)
+
+//////////////////////////////////////////////////////////////////
+// ESTRUCTURAS DE CONTROL SWITCH
+//////////////////////////////////////////////////////////////////
+var signo = prompt('¿Cual es tu signo?')
+switch (signo.toLowerCase()) {
+    case 'acuario':
+        console.log('Eres acuario')
+        break
+    case 'libra':
+        console.log('Eres libra')
+        break
+    default:
+        console.log('Signo no encontrado')
+        break
+}
