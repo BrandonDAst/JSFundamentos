@@ -321,7 +321,12 @@ ProtoPersona.prototype.saludar = function () {
     console.log(`Hola, me llamo ${this.nombre} ${this.apellido}`)
 }
 ProtoPersona.prototype.soyAlto = function () {
+    debugger
     return this.altura >= 1.8
+}
+ProtoPersona.prototype.soyAltoArrow = () => {
+    debugger
+    return this.altura >= 1.8 //En arrow functions this es la ventana, no la persona
 }
 
 var protoBrandon = new ProtoPersona('Brandon', 'Diaz', 25, 80, 1.70)
