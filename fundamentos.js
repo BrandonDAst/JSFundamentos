@@ -304,4 +304,22 @@ const reducer = (acum, {
     return acum + peso
 }
 var pesoTotal = personas.reduce(reducer, 0)
-console.log(`Las personas pesan un total de ${pesoTotal.toFixed(1)} KGs.`)
+//console.log(`Las personas pesan un total de ${pesoTotal.toFixed(1)} KGs.`)
+
+//////////////////////////////////////////////////////////////////
+// CLASES
+//////////////////////////////////////////////////////////////////
+// Son prototipos
+function ProtoPersona(nombre, apellido, edad, peso) {
+    this.nombre = nombre
+    this.apellido = apellido
+    this.edad = edad
+    this.peso = peso
+}
+ProtoPersona.prototype.saludar = function () {
+    console.log(`Hola, me llamo ${this.nombre} ${this.apellido}`)
+}
+var protoBrandon = new ProtoPersona('Brandon', 'Diaz', 25, 80)
+protoBrandon.saludar()
+var protoArturo = new ProtoPersona('Artu', 'Ramz')
+protoArturo.saludar()
