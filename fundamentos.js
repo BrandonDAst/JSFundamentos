@@ -77,12 +77,17 @@ var brandon = {
     nombre: 'Brandon',
     apellido: 'Diaz',
     edad: 24,
-    peso: 80
+    peso: 80,
+    ingeniero: true,
+    cocinero: false
 }
 var dario = {
     nombre: 'Dario',
     apellido: 'Susnisky',
-    edad: 29
+    edad: 29,
+    peso: 85,
+    ingeniero: true,
+    cocinero: false
 }
 
 //ImprimirNombreMayus(brandon)
@@ -129,6 +134,7 @@ var luis = {
     nombre: 'Luis',
     apellido: 'Diaz',
     edad: 24,
+    peso: 60,
     ingeniero: true,
     cocinero: false
 }
@@ -136,6 +142,7 @@ var anonimo = {
     nombre: 'Anonimo',
     apellido: 'Diaz',
     edad: 14,
+    peso: 65,
     ingeniero: true,
     cocinero: false
 }
@@ -246,7 +253,7 @@ if (contador === 1) veces = 'vez'
 //////////////////////////////////////////////////////////////////
 // ESTRUCTURAS DE CONTROL SWITCH
 //////////////////////////////////////////////////////////////////
-var signo = prompt('¿Cual es tu signo?')
+var signo = 'libra' //prompt('¿Cual es tu signo?')
 switch (signo.toLowerCase()) {
     case 'acuario':
         console.log('Eres acuario')
@@ -258,3 +265,43 @@ switch (signo.toLowerCase()) {
         console.log('Signo no encontrado')
         break
 }
+
+//////////////////////////////////////////////////////////////////
+// ARRAYS
+//////////////////////////////////////////////////////////////////
+//Inicializar y leer
+var personas = [brandon, luis, dario, anonimo]
+//var primerPeso = personas[0]['peso']
+var primerPeso = personas[0].peso
+var cantidadPersonas = personas.length
+
+const esGorda = ({
+    peso
+}) => {
+    return peso > 70
+}
+
+var personasGordas = personas.filter(esGorda)
+// var personasGordas = personas.filter(function (persona) {
+//     return persona.peso > 70
+// })
+
+//console.log(personasGordas)
+
+//Transformar Array
+//Esta funcion solo retorna un nuevo objeto basado en la entrada
+const pasarPesoAGrs = (persona) => ({
+    ...persona,
+    peso: persona.peso * 1000
+})
+
+var personasGrs = personas.map(pasarPesoAGrs)
+
+//Reducir un arreglo a un valor unico
+const reducer = (acum, {
+    peso
+}) => {
+    return acum + peso
+}
+var pesoTotal = personas.reduce(reducer, 0)
+console.log(`Las personas pesan un total de ${pesoTotal.toFixed(1)} KGs.`)
