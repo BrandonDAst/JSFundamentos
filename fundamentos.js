@@ -310,16 +310,21 @@ var pesoTotal = personas.reduce(reducer, 0)
 // CLASES
 //////////////////////////////////////////////////////////////////
 // Son prototipos
-function ProtoPersona(nombre, apellido, edad, peso) {
+function ProtoPersona(nombre, apellido, edad, peso, altura) {
     this.nombre = nombre
     this.apellido = apellido
     this.edad = edad
     this.peso = peso
+    this.altura = altura
 }
 ProtoPersona.prototype.saludar = function () {
     console.log(`Hola, me llamo ${this.nombre} ${this.apellido}`)
 }
-var protoBrandon = new ProtoPersona('Brandon', 'Diaz', 25, 80)
+ProtoPersona.prototype.soyAlto = function () {
+    return this.altura >= 1.8
+}
+
+var protoBrandon = new ProtoPersona('Brandon', 'Diaz', 25, 80, 1.70)
 protoBrandon.saludar()
-var protoArturo = new ProtoPersona('Artu', 'Ramz')
+var protoArturo = new ProtoPersona('Artu', 'Ramz', 34, 75, 1.8)
 protoArturo.saludar()
