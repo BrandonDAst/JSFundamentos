@@ -84,10 +84,38 @@ var dario = {
     edad: 29
 }
 
-ImprimirNombreMayus(brandon)
-ImprimirNombreMayusDestruct(dario)
-ImprimirNombreMayusDestruct({
-    nombre: 'Pepito'
-})
+//ImprimirNombreMayus(brandon)
+//ImprimirNombreMayusDestruct(dario)
+//ImprimirNombreMayusDestruct({nombre: 'Pepito'})
+//ImprimirNombreEdad(brandon)
 
-ImprimirNombreEdad(brandon)
+//////////////////////////////////////////////////////////////////
+// PARAMETROS COMO VALOR Y REFERENCIA
+//////////////////////////////////////////////////////////////////
+function Cumpleanos(persona) {
+    persona.edad += 1 //Afecta el objeto global
+}
+
+function CumpleanosNuevoObjeto(persona) {
+    return { // Devuelve un nuevo objeto, basado en la entrada. OBJETO LITERAL
+        ...persona,
+        edad: persona.edad + 1
+    }
+}
+
+//////////////////////////////////////////////////////////////////
+// COMPARACIONES EN JS
+//////////////////////////////////////////////////////////////////
+
+var x = 4
+var y = "4"
+// == Compara valores
+// === Compara tipo de dato
+// x==y 4=="4" True
+// x===y 4==="4" False
+
+var otraPersona = {
+    nombre: "Brandon"
+}
+var otroBrandon = brandon // brandon == otroBrandon TRUE
+//Cambiar el nombre a otroBrandon cambia a brandon, son la misma ubicacion en RAM
