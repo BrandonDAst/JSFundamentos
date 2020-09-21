@@ -330,6 +330,28 @@ ProtoPersona.prototype.soyAltoArrow = () => {
 }
 
 var protoBrandon = new ProtoPersona('Brandon', 'Diaz', 25, 80, 1.70)
-protoBrandon.saludar()
+//protoBrandon.saludar()
 var protoArturo = new ProtoPersona('Artu', 'Ramz', 34, 75, 1.8)
-protoArturo.saludar()
+//protoArturo.saludar()
+
+
+//////////////////////////////////////////////////////////////////
+// HERENCIA
+//////////////////////////////////////////////////////////////////
+function CrearHerencia(protoHijo, protoPadre) {
+    var fn = function () {} // Funcion vacia dumie
+    fn.prototype = protoPadre.prototype
+    protoHijo.prototype = new fn
+    protoHijo.prototype.constructor = protoHijo
+}
+
+function ProtoDeveloper(nombre, apellido) {
+    this.nombre = nombre
+    this.apellido = apellido
+}
+
+CrearHerencia(ProtoDeveloper, ProtoPersona)
+
+ProtoDeveloper.prototype.saludar = function () { //Sobre escribir la funcion Saludar
+    console.log(`Hola, me llamo ${this.nombre} ${this.apellido} y soy desarrollador`)
+}
