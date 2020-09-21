@@ -119,3 +119,35 @@ var otraPersona = {
 }
 var otroBrandon = brandon // brandon == otroBrandon TRUE
 //Cambiar el nombre a otroBrandon cambia a brandon, son la misma ubicacion en RAM
+
+//////////////////////////////////////////////////////////////////
+// ESTRUCTURAS DE CONTROL
+//////////////////////////////////////////////////////////////////
+// Condicionales
+const MAYORIA_EDAD = 18
+var luis = {
+    nombre: 'Luis',
+    apellido: 'Diaz',
+    edad: 24,
+    ingeniero: true,
+    cocinero: false
+}
+
+function ImprimirProfesiones(persona) {
+    console.log(`${persona.nombre} es: `)
+    if (persona.ingeniero) console.log(`Ingeniero`)
+    if (persona.cocinero) console.log(`Cocinero`)
+}
+
+
+function ImprimirMayorEdad(persona) {
+    if (EsMayorDeEdad(persona)) console.log(`${persona.nombre} es mayor de edad`)
+    else console.log(`${persona.nombre} no es mayor de edad`)
+}
+
+function EsMayorDeEdad(persona) {
+    return persona.edad >= MAYORIA_EDAD
+}
+
+ImprimirProfesiones(luis)
+ImprimirMayorEdad(luis)
