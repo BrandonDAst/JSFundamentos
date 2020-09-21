@@ -338,7 +338,7 @@ var protoArturo = new ProtoPersona('Artu', 'Ramz', 34, 75, 1.8)
 //////////////////////////////////////////////////////////////////
 // HERENCIA
 //////////////////////////////////////////////////////////////////
-function CrearHerencia(protoHijo, protoPadre) {
+function CrearHerenciaPrototipal(protoHijo, protoPadre) {
     var fn = function () {} // Funcion vacia dumie
     fn.prototype = protoPadre.prototype
     protoHijo.prototype = new fn
@@ -350,8 +350,35 @@ function ProtoDeveloper(nombre, apellido) {
     this.apellido = apellido
 }
 
-CrearHerencia(ProtoDeveloper, ProtoPersona)
+CrearHerenciaPrototipal(ProtoDeveloper, ProtoPersona)
 
 ProtoDeveloper.prototype.saludar = function () { //Sobre escribir la funcion Saludar
     console.log(`Hola, me llamo ${this.nombre} ${this.apellido} y soy desarrollador`)
+}
+
+//////////////////////////////////////////////////////////////////
+// CLASES SEGUN ECMA SCRIPT 6 (2015)
+//////////////////////////////////////////////////////////////////
+class ClasePersona {
+    constructor(nombre, apellido, edad, peso, altura) {
+        this.nombre = nombre
+        this.apellido = apellido
+        this.edad = edad
+        this.peso = peso
+        this.altura = altura
+    }
+    saludar() {
+        console.log(`Hola, me llamo ${this.nombre} ${this.apellido}`)
+    }
+    soyAlto() {
+        return this.altura < 1.8
+    }
+}
+class ClaseDev extends ClasePersona {
+    constructor(nombre, apellido) {
+        super(nombre, apellido)
+    }
+    saluadr() {
+        console.log(`Hola, me llamo ${this.nombre} ${this.apellido} y soy desarrollador`)
+    }
 }
