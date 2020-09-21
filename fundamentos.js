@@ -76,7 +76,8 @@ function ImprimirNombreEdad(persona) {
 var brandon = {
     nombre: 'Brandon',
     apellido: 'Diaz',
-    edad: 24
+    edad: 24,
+    peso: 80
 }
 var dario = {
     nombre: 'Dario',
@@ -121,9 +122,8 @@ var otroBrandon = brandon // brandon == otroBrandon TRUE
 //Cambiar el nombre a otroBrandon cambia a brandon, son la misma ubicacion en RAM
 
 //////////////////////////////////////////////////////////////////
-// ESTRUCTURAS DE CONTROL
+// ESTRUCTURAS DE CONTROL IF
 //////////////////////////////////////////////////////////////////
-// Condicionales
 const MAYORIA_EDAD = 18
 var luis = {
     nombre: 'Luis',
@@ -176,8 +176,8 @@ const EsMayorDeEdadAnonArrowSimplificadoDestruct = ({
 }) => edad >= MAYORIA_EDAD
 
 //ImprimirProfesiones(luis)
-ImprimirMayorEdad(luis)
-ImprimirMayorEdadAnon(anonimo)
+//ImprimirMayorEdad(luis)
+//ImprimirMayorEdadAnon(anonimo)
 //console.log(EsMayorDeEdadAnonArrowSimplificado(anonimo))
 //console.log(EsMayorDeEdadAnonArrowSimplificadoDestruct(luis))
 
@@ -186,5 +186,24 @@ function PermitirAcceso(persona) {
     else console.log('Acceso Denegado')
 }
 
-PermitirAcceso(luis)
-PermitirAcceso(anonimo)
+//PermitirAcceso(luis)
+//PermitirAcceso(anonimo)
+
+//////////////////////////////////////////////////////////////////
+// ESTRUCTURAS DE CONTROL FOR
+//////////////////////////////////////////////////////////////////
+var diferenciaPeso = 0.2
+
+const SubeDePeso = persona => persona.peso += diferenciaPeso
+const BajaDePeso = persona => persona.peso -= diferenciaPeso
+
+console.log(`Al inicio del año Brandon pesaba ${brandon.peso} KG.`)
+
+for (var i = 1; i <= 365; i++) {
+    var rnd = Math.random()
+
+    if (rnd < 0.25) SubeDePeso(brandon)
+    else if (rnd < 0.50) BajaDePeso(brandon)
+}
+
+console.log(`Al final del año Brandon pesa ${brandon.peso.toFixed(1)} KG.`)
