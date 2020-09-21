@@ -132,6 +132,13 @@ var luis = {
     ingeniero: true,
     cocinero: false
 }
+var anonimo = {
+    nombre: 'Anonimo',
+    apellido: 'Diaz',
+    edad: 14,
+    ingeniero: true,
+    cocinero: false
+}
 
 function ImprimirProfesiones(persona) {
     console.log(`${persona.nombre} es: `)
@@ -145,9 +152,39 @@ function ImprimirMayorEdad(persona) {
     else console.log(`${persona.nombre} no es mayor de edad`)
 }
 
+//////////////////////////////////////////////////////////////////
+// ARROW FUNCTIONS
+//////////////////////////////////////////////////////////////////
+
+function ImprimirMayorEdadAnon(persona) {
+    if (EsMayorDeEdadAnon(persona)) console.log(`${persona.nombre} es mayor de edad`)
+    else console.log(`${persona.nombre} no es mayor de edad`)
+}
+
 function EsMayorDeEdad(persona) {
     return persona.edad >= MAYORIA_EDAD
 }
+const EsMayorDeEdadAnon = function (persona) {
+    return persona.edad >= MAYORIA_EDAD
+}
+const EsMayorDeEdadAnonArrow = (persona) => {
+    return persona.edad >= MAYORIA_EDAD
+}
+const EsMayorDeEdadAnonArrowSimplificado = persona => persona.edad >= MAYORIA_EDAD
+const EsMayorDeEdadAnonArrowSimplificadoDestruct = ({
+    edad
+}) => edad >= MAYORIA_EDAD
 
-ImprimirProfesiones(luis)
+//ImprimirProfesiones(luis)
 ImprimirMayorEdad(luis)
+ImprimirMayorEdadAnon(anonimo)
+//console.log(EsMayorDeEdadAnonArrowSimplificado(anonimo))
+//console.log(EsMayorDeEdadAnonArrowSimplificadoDestruct(luis))
+
+function PermitirAcceso(persona) {
+    if (EsMayorDeEdad(persona)) console.log('Acceso Concedido')
+    else console.log('Acceso Denegado')
+}
+
+PermitirAcceso(luis)
+PermitirAcceso(anonimo)
