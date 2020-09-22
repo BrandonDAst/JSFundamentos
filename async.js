@@ -62,9 +62,26 @@ function ObtenerPersonajePromesa(id) {
 }
 
 ObtenerPersonajePromesa(1)
-    .then(function (personaje) {
-        console.log(`El personaje 1 es ${personaje.name}`)
+    .then((p1) => {
+        console.log(`El personaje 1 es ${p1.name}`)
+        return ObtenerPersonajePromesa(2)
     })
-    .catch(function (id) {
+    .then((p2) => {
+        console.log(`El personaje 2 es ${p2.name}`)
+        return ObtenerPersonajePromesa(3)
+    })
+    .then((p3) => {
+        console.log(`El personaje 3 es ${p3.name}`)
+        return ObtenerPersonajePromesa(4)
+    })
+    .then((p4) => {
+        console.log(`El personaje 4 es ${p4.name}`)
+        return ObtenerPersonajePromesa(5)
+    })
+    .then((p5) => {
+        console.log(`El personaje 5 es ${p5.name}`)
+        //return ObtenerPersonajePromesa(4)
+    })
+    .catch((id) => {
         console.log(`Sucedió un error al obtener el personaje ${id}`)
     })
