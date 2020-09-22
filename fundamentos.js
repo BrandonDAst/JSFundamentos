@@ -406,3 +406,11 @@ var cDev = new ClaseDev('Dev', 'JS')
 cBrandon.saludar()
 cVero.saludar(ResponderSaludo)
 cDev.saludar(ResponderSaludo)
+
+
+var n = 'Brnaodn'
+var a = 'diaz'
+
+function PasarM(n) {
+    return n.toUpperCase()
+}
