@@ -13,20 +13,29 @@ const ON_PEOPLE_RESPONSE = (person) => {
 function ObtenerPersonaje(id, callback) {
     const URL = `${API_URL}${PEOPLE_URL.replace(':id', id)}`
 
-    $.get(URL, REQUEST_OPTIONS, (person) => {
-        console.log(`Hola, yo soy ${person.name}`)
-        if (callback) {
-            callback()
-        }
-    })
+    $
+        .get(URL, REQUEST_OPTIONS, callback)
+        .fail(() => {
+            console.log(`No se pudo obtener el personaje ${id}`)
+        })
 }
 
 // Callback HELL
-ObtenerPersonaje(1, function () {
-    ObtenerPersonaje(2, function () {
-        ObtenerPersonaje(3, function () {
-            ObtenerPersonaje(4, function () {
-                ObtenerPersonaje(5)
+ObtenerPersonaje(1, function (person) {
+    console.log(`Hola, yo soy ${person.name}`)
+
+    ObtenerPersonaje(2, function (person) {
+        console.log(`Hola, yo soy ${person.name}`)
+
+        ObtenerPersonaje(3, function (person) {
+            console.log(`Hola, yo soy ${person.name}`)
+
+            ObtenerPersonaje(4, function (person) {
+                console.log(`Hola, yo soy ${person.name}`)
+
+                ObtenerPersonaje(5, function (person) {
+                    console.log(`Hola, yo soy ${person.name}`)
+                })
             })
         })
     })
