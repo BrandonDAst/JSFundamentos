@@ -44,7 +44,7 @@ function ImprimirEdad(n, e) {
 }
 //ImprimirEdad(nombre, edad)
 
-// El alcance de las funciones. A que variables pueden acceder
+// El alcance de las funciones. A que variables pueden aeder
 function ImprimirNombreMayus(persona) {
     var {
         nombre
@@ -188,13 +188,13 @@ const EsMayorDeEdadAnonArrowSimplificadoDestruct = ({
 //console.log(EsMayorDeEdadAnonArrowSimplificado(anonimo))
 //console.log(EsMayorDeEdadAnonArrowSimplificadoDestruct(luis))
 
-function PermitirAcceso(persona) {
-    if (EsMayorDeEdad(persona)) console.log('Acceso Concedido')
-    else console.log('Acceso Denegado')
+function PermitirAeso(persona) {
+    if (EsMayorDeEdad(persona)) console.log('Aeso Concedido')
+    else console.log('Aeso Denegado')
 }
 
-//PermitirAcceso(luis)
-//PermitirAcceso(anonimo)
+//PermitirAeso(luis)
+//PermitirAeso(anonimo)
 
 //////////////////////////////////////////////////////////////////
 // ESTRUCTURAS DE CONTROL FOR
@@ -339,9 +339,9 @@ var protoArturo = new ProtoPersona('Artu', 'Ramz', 34, 75, 1.8)
 // HERENCIA
 //////////////////////////////////////////////////////////////////
 function CrearHerenciaPrototipal(protoHijo, protoPadre) {
-    var fn = function () {} // Funcion vacia dumie
-    fn.prototype = protoPadre.prototype
-    protoHijo.prototype = new fn
+    var responder = function () {} // Funcion vacia dumie
+    responder.prototype = protoPadre.prototype
+    protoHijo.prototype = new responder
     protoHijo.prototype.constructor = protoHijo
 }
 
@@ -357,7 +357,7 @@ ProtoDeveloper.prototype.saludar = function () { //Sobre escribir la funcion Sal
 }
 
 //////////////////////////////////////////////////////////////////
-// CLASES SEGUN ECMA SCRIPT 6 (2015)
+// CLASES SEGÚN ECMA SCRIPT 6 (2015)
 //////////////////////////////////////////////////////////////////
 class ClasePersona {
     constructor(nombre, apellido, edad, peso, altura) {
@@ -367,8 +367,11 @@ class ClasePersona {
         this.peso = peso
         this.altura = altura
     }
-    saludar() {
+    saludar(responder) {
         console.log(`Hola, me llamo ${this.nombre} ${this.apellido}`)
+        if (responder) {
+            responder(nombre, apellido)
+        }
     }
     soyAlto() {
         return this.altura < 1.8
@@ -378,7 +381,28 @@ class ClaseDev extends ClasePersona {
     constructor(nombre, apellido) {
         super(nombre, apellido)
     }
-    saluadr() {
-        console.log(`Hola, me llamo ${this.nombre} ${this.apellido} y soy desarrollador`)
+    saludar(responder) {
+        console.log(`Hola, me llamo ${this.nombre} ${this.apellido} y soy desarrollador.`)
+        if (responder) {
+            responder(this.nombre, this.apellido, true)
+        }
     }
 }
+
+//////////////////////////////////////////////////////////////////
+// FUNCIONES COMO PARÁMETROS
+//////////////////////////////////////////////////////////////////
+function ResponderSaludo(nombre, apellido, esDev) {
+    console.log(`Buen día ${nombre} ${apellido}`)
+    if (esDev) {
+        console.log(`No sabía que eres Dev`)
+    }
+}
+
+var cBrandon = new ClasePersona('Brandon', 'Diaz', 12, 23, 34)
+var cVero = new ClasePersona('Vero', 'Barba', 12, 23, 34)
+var cDev = new ClaseDev('Dev', 'JS')
+
+cBrandon.saludar()
+cVero.saludar(ResponderSaludo)
+cDev.saludar(ResponderSaludo)
