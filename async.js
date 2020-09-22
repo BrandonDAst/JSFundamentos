@@ -10,11 +10,24 @@ const ON_PEOPLE_RESPONSE = (person) => {
 }
 //$.get(REQUEST_URL, REQUEST_OPTIONS, ON_PEOPLE_RESPONSE)
 
-function ObtenerPersonaje(id) {
+function ObtenerPersonaje(id, callback) {
     const URL = `${API_URL}${PEOPLE_URL.replace(':id', id)}`
-    $.get(URL, REQUEST_OPTIONS, ON_PEOPLE_RESPONSE)
+
+    $.get(URL, REQUEST_OPTIONS, (person) => {
+        console.log(`Hola, yo soy ${person.name}`)
+        if (callback) {
+            callback()
+        }
+    })
 }
 
-ObtenerPersonaje(1)
-ObtenerPersonaje(2)
-ObtenerPersonaje(3)
+// Callback HELL
+ObtenerPersonaje(1, function () {
+    ObtenerPersonaje(2, function () {
+        ObtenerPersonaje(3, function () {
+            ObtenerPersonaje(4, function () {
+                ObtenerPersonaje(5)
+            })
+        })
+    })
+})
