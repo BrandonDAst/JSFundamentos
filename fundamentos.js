@@ -406,9 +406,3 @@ var cDev = new ClaseDev('Dev', 'JS')
 cBrandon.saludar()
 cVero.saludar(ResponderSaludo)
 cDev.saludar(ResponderSaludo)
-
-//////////////////////////////////////////////////////////////////
-// CALLBACKS
-//////////////////////////////////////////////////////////////////
-// Un callback es una función que JS ejecutará cuando regrese la respuesta del servidor
-// Como funciona el tiempo en JS
